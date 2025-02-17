@@ -1,0 +1,864 @@
+:root {
+    /* 现代化配色方案 */
+    --primary-color: #0066CC;
+    --secondary-color: #86868B;
+    --background-color: #FBFBFD;
+    --card-background: #FFFFFF;
+    --text-primary: #1D1D1F;
+    --text-secondary: #86868B;
+    --accent-color: #2997FF;
+    --error-color: #FF3B30;
+    --success-color: #34C759;
+    --border-radius: 14px;
+    --shadow-sm: 0 2px 4px rgba(0, 0, 0, 0.05);
+    --shadow-md: 0 4px 6px rgba(0, 0, 0, 0.07);
+    --shadow-lg: 0 10px 20px rgba(0, 0, 0, 0.1);
+    --transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+    --container-padding: max(1rem, 5vw);
+    
+    /* 功能区主题色 */
+    --button-test-color: #007AFF;      /* 蓝色 - 按键测试 */
+    --dpad-test-color: #5856D6;        /* 紫色 - 方向键测试 */
+    --polling-test-color: #FF2D55;     /* 红色 - 回报率测试 */
+    --deadzone-test-color: #34C759;    /* 绿色 - 死区测试 */
+    --trigger-test-color: #FF9500;     /* 橙色 - 扳机测试 */
+    --vibration-test-color: #AF52DE;   /* 粉色 - 震动测试 */
+}
+
+/* 基础样式重置 */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+/* 现代化排版 */
+body {
+    font-family: -apple-system, BlinkMacSystemFont, "SF Pro Text", "Helvetica Neue", Arial, sans-serif;
+    background-color: var(--background-color);
+    color: var(--text-primary);
+    line-height: 1.47059;
+    font-size: 17px;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+}
+
+/* 容器响应式布局 */
+.container {
+    width: 100%;
+    max-width: 1440px;
+    margin: 0 auto;
+    padding: var(--container-padding);
+}
+
+/* 现代化标题样式 */
+h1 {
+    font-size: clamp(2rem, 4vw, 3.5rem);
+    font-weight: 600;
+    letter-spacing: -0.015em;
+    color: var(--text-primary);
+}
+
+h2 {
+    font-size: clamp(1.5rem, 3vw, 2rem);
+    font-weight: 600;
+    letter-spacing: -0.01em;
+}
+
+/* 头部样式现代化 */
+.site-header {
+    padding: 1.5rem 0;
+    background: rgba(255, 255, 255, 0.8);
+    backdrop-filter: blur(20px);
+    -webkit-backdrop-filter: blur(20px);
+    position: sticky;
+    top: 0;
+    z-index: 100;
+    transition: var(--transition);
+}
+
+.header-content {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 2rem;
+}
+
+/* 状态卡片现代化 */
+.status-card {
+    background: rgba(0, 102, 204, 0.1);
+    color: var(--primary-color);
+    padding: 0.5rem 1.25rem;
+    border-radius: 100px;
+    font-size: 0.9rem;
+    font-weight: 500;
+    transition: var(--transition);
+}
+
+.status-card.connected {
+    background: rgba(52, 199, 89, 0.1);
+    color: var(--success-color);
+}
+
+/* 测试卡片现代化设计 */
+.test-card {
+    position: relative;
+    background: var(--card-background);
+    border-radius: var(--border-radius);
+    box-shadow: var(--shadow-md);
+    overflow: hidden;
+    margin-bottom: 2rem;
+    border: 1px solid rgba(0, 0, 0, 0.08);
+    transition: var(--transition);
+}
+
+/* 卡片头部样式优化 */
+.card-header {
+    position: relative;
+    padding: 1.5rem 2rem 1.5rem calc(2rem + 4px); /* 补偿边框宽度 */
+    background: linear-gradient(
+        to right,
+        rgba(var(--theme-color, 0, 122, 255), 0.05),
+        transparent 70%
+    );
+    border-bottom: 1px solid rgba(0, 0, 0, 0.06);
+    border-left: 4px solid var(--theme-color, var(--primary-color));
+}
+
+.card-header h2 {
+    font-size: 1.1rem;
+    font-weight: 500;
+    letter-spacing: 0.01em;
+}
+
+/* 卡片内容样式 */
+.card-content {
+    padding: 2rem 2.5rem;
+    background: linear-gradient(
+        to bottom,
+        rgba(var(--theme-color, 0, 122, 255), 0.02),
+        transparent 20%
+    );
+}
+
+/* 测试说明文本现代化 */
+.test-description {
+    color: var(--text-secondary);
+    font-size: 0.95rem;
+    line-height: 1.7;
+    margin: 0.5rem 0 2.5rem;
+    padding-left: 1.5rem;
+    max-width: 90%;
+    letter-spacing: 0.01em;
+}
+
+.test-description strong {
+    color: var(--text-primary);
+    font-weight: 500;
+    display: block;
+    margin-top: 1.75rem;
+    margin-bottom: 0.75rem;
+    font-size: 0.9rem;
+    letter-spacing: 0.02em;
+    position: relative;
+}
+
+.test-description strong::before {
+    content: '';
+    position: absolute;
+    left: -1.5rem;
+    top: 0.5rem;
+    width: 0.75rem;
+    height: 2px;
+    background-color: var(--primary-color);
+    opacity: 0.7;
+}
+
+.test-description br {
+    display: block;
+    content: "";
+    margin: 1rem 0;
+}
+
+.test-description ol {
+    margin: 0.75rem 0 1rem 0;
+    padding-left: 1.25rem;
+    color: var(--text-secondary);
+}
+
+.test-description li {
+    margin-bottom: 0.5rem;
+    line-height: 1.6;
+    padding-left: 0.5rem;
+    position: relative;
+}
+
+.test-description li::marker {
+    color: var(--primary-color);
+    opacity: 0.7;
+}
+
+/* 按钮现代化设计 */
+.button {
+    background: var(--primary-color);
+    color: white;
+    padding: 0.75rem 1.5rem;
+    border-radius: 100px;
+    border: none;
+    font-size: 0.9rem;
+    font-weight: 500;
+    cursor: pointer;
+    transition: var(--transition);
+    text-align: center;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 0.5rem;
+    letter-spacing: 0.02em;
+}
+
+.button:hover {
+    background: var(--accent-color);
+    transform: translateY(-1px);
+}
+
+.button.secondary {
+    background: transparent;
+    border: 1px solid var(--primary-color);
+    color: var(--primary-color);
+}
+
+.button.secondary:hover {
+    background: rgba(0, 102, 204, 0.1);
+}
+
+/* 响应式网格布局 */
+.grid {
+    display: grid;
+    gap: 2rem;
+    grid-template-columns: repeat(auto-fit, minmax(min(100%, 300px), 1fr));
+}
+
+/* 响应式调整 */
+@media (max-width: 768px) {
+    :root {
+        --container-padding: 1rem;
+    }
+    
+    .header-content {
+        flex-direction: column;
+        text-align: center;
+    }
+    
+    .test-card {
+        margin-bottom: 1rem;
+    }
+    
+    .card-content {
+        padding: 1.5rem;
+    }
+    
+    .test-description {
+        padding-left: 1rem;
+        max-width: 100%;
+    }
+    
+    .test-description strong::before {
+        left: -1rem;
+        width: 0.5rem;
+    }
+}
+
+@media (min-width: 2000px) {
+    body {
+        font-size: 18px;
+    }
+    
+    .container {
+        max-width: 1600px;
+    }
+}
+
+/* 动画效果 */
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+        transform: translateY(10px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+.animate-in {
+    animation: fadeIn 0.5s ease-out forwards;
+}
+
+/* 暗色模式支持 */
+@media (prefers-color-scheme: dark) {
+    :root {
+        --background-color: #000000;
+        --card-background: #1C1C1E;
+        --text-primary: #FFFFFF;
+        --text-secondary: #86868B;
+        --shadow-sm: 0 2px 4px rgba(0, 0, 0, 0.2);
+        --shadow-md: 0 4px 6px rgba(0, 0, 0, 0.3);
+        --shadow-lg: 0 10px 20px rgba(0, 0, 0, 0.4);
+    }
+    
+    .site-header {
+        background: rgba(28, 28, 30, 0.8);
+    }
+    
+    .test-card {
+        border-color: rgba(255, 255, 255, 0.08);
+        background: linear-gradient(
+            to bottom,
+            rgba(var(--theme-color, 0, 122, 255), 0.05),
+            transparent 30%
+        );
+    }
+    
+    .test-description {
+        color: rgba(255, 255, 255, 0.7);
+    }
+    
+    .test-description strong {
+        color: rgba(255, 255, 255, 0.9);
+    }
+    
+    .test-description strong::before {
+        background-color: var(--accent-color);
+    }
+    
+    .test-description li::marker {
+        color: var(--accent-color);
+    }
+    
+    .card-header {
+        background: linear-gradient(
+            to right,
+            rgba(var(--theme-color, 0, 122, 255), 0.1),
+            transparent 70%
+        );
+        border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+    }
+    
+    .test-card:hover .card-header {
+        background: linear-gradient(
+            to right,
+            rgba(var(--theme-color, 0, 122, 255), 0.15),
+            transparent 70%
+        );
+    }
+}
+
+.language-switch {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    font-size: 0.9rem;
+}
+
+.language-switch a {
+    color: var(--text-color);
+    text-decoration: none;
+    padding: 0.25rem 0.5rem;
+    border-radius: 4px;
+    transition: var(--transition);
+}
+
+.language-switch a.active {
+    background-color: var(--primary-color);
+    color: white;
+}
+
+.language-switch span {
+    color: #ccc;
+}
+
+/* 卡片样式更新 */
+.feature-card {
+    background: var(--card-background);
+    border-radius: var(--border-radius);
+    box-shadow: var(--shadow);
+    transition: var(--transition);
+    overflow: hidden;
+    margin-bottom: 2rem;
+}
+
+.feature-card:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 6px 12px rgba(0, 0, 0, 0.15);
+}
+
+/* 按钮样式更新 */
+.reset-button, .vibration-button {
+    background-color: var(--primary-color);
+    color: white;
+    border: none;
+    padding: 0.75rem 1.5rem;
+    border-radius: 6px;
+    font-weight: 500;
+    cursor: pointer;
+    transition: var(--transition);
+    font-size: 0.9rem;
+    font-weight: 500;
+    letter-spacing: 0.02em;
+}
+
+.reset-button:hover, .vibration-button:hover {
+    background-color: #357ABD;
+    transform: translateY(-1px);
+}
+
+/* 页脚样式 */
+.site-footer {
+    text-align: center;
+    padding: 2rem 0;
+    margin-top: 3rem;
+    color: #666;
+    font-size: 0.9rem;
+}
+
+header {
+    text-align: center;
+    margin-bottom: 2rem;
+}
+
+.test-sections {
+    display: flex;
+    flex-direction: column;
+    gap: 1.5rem;
+    padding: 0.5rem;
+    max-width: 800px;
+    margin: 0 auto;
+}
+
+.joystick-container {
+    display: flex;
+    justify-content: space-around;
+    margin-top: 1rem;
+    flex: 1;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 2rem;
+}
+
+canvas {
+    border: 1px solid rgba(0, 122, 255, 0.2);
+    border-radius: var(--border-radius);
+    background-color: rgba(0, 122, 255, 0.05);
+}
+
+.trigger-container {
+    display: flex;
+    justify-content: space-around;
+    margin-top: 1rem;
+    flex: 1;
+    align-items: center;
+    padding: 0 2rem;
+}
+
+.trigger {
+    width: 40px;
+    height: 200px;
+    background-color: rgba(0, 122, 255, 0.05);
+    border-radius: 20px;
+    position: relative;
+    overflow: hidden;
+    border: 1px solid rgba(0, 122, 255, 0.2);
+}
+
+.trigger-bar {
+    position: absolute;
+    bottom: 0;
+    width: 100%;
+    background-color: var(--primary-color);
+    transition: height 0.1s ease;
+    opacity: 0.8;
+}
+
+.trigger span {
+    position: absolute;
+    bottom: -25px;
+    left: 50%;
+    transform: translateX(-50%);
+    white-space: nowrap;
+    font-size: 0.85rem;
+    color: var(--text-color);
+    letter-spacing: 0.01em;
+}
+
+@media (max-width: 768px) {
+    .container {
+        padding: 0.5rem;
+    }
+    
+    body {
+        padding: 10px;
+    }
+}
+
+/* 按键测试样式 */
+.button-grid {
+    display: flex;
+    justify-content: center;
+    padding: 1rem;
+}
+
+.button-group {
+    display: flex;
+    flex-direction: column;
+    gap: 1.5rem;
+}
+
+.button-row {
+    display: flex;
+    gap: 1rem;
+    justify-content: center;
+}
+
+.gamepad-button {
+    width: 60px;
+    height: 60px;
+    border-radius: 50%;
+    border: 1px solid rgba(0, 122, 255, 0.2);
+    background-color: rgba(0, 122, 255, 0.05);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-weight: 500;
+    transition: all 0.1s ease;
+}
+
+.gamepad-button.active {
+    background-color: var(--primary-color);
+    color: white;
+}
+
+/* 方向键测试样式 */
+.dpad-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 1rem;
+}
+
+.dpad {
+    position: relative;
+    width: 150px;
+    height: 150px;
+}
+
+.dpad > div {
+    position: absolute;
+    width: 50px;
+    height: 50px;
+    background-color: rgba(0, 122, 255, 0.05);
+    border: 1px solid rgba(0, 122, 255, 0.2);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: all 0.1s ease;
+}
+
+.dpad > div.active {
+    background-color: var(--primary-color);
+    color: white;
+}
+
+.dpad-up { top: 0; left: 50px; border-radius: 8px 8px 0 0; }
+.dpad-right { top: 50px; left: 100px; border-radius: 0 8px 8px 0; }
+.dpad-down { top: 100px; left: 50px; border-radius: 0 0 8px 8px; }
+.dpad-left { top: 50px; left: 0; border-radius: 8px 0 0 8px; }
+
+.dpad-combo {
+    text-align: center;
+}
+
+/* 震动测试样式 */
+.vibration-controls {
+    display: flex;
+    gap: 1rem;
+    justify-content: center;
+    padding: 1rem;
+}
+
+.vibration-button {
+    padding: 0.8rem 1.5rem;
+    border-radius: 100px;
+    border: none;
+    background-color: var(--primary-color);
+    color: white;
+    font-weight: 500;
+    cursor: pointer;
+    transition: opacity 0.2s ease;
+    font-size: 0.9rem;
+    font-weight: 500;
+    letter-spacing: 0.02em;
+}
+
+.vibration-button:hover {
+    opacity: 0.9;
+}
+
+/* 摇杆回报率显示 */
+.joystick-wrapper {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 0.5rem;
+}
+
+.polling-rate {
+    font-size: 0.85rem;
+    color: var(--text-color);
+    letter-spacing: 0.01em;
+}
+
+/* 方向键按钮样式 */
+.dpad-buttons {
+    display: flex;
+    justify-content: center;
+    gap: 1rem;
+    position: relative;
+}
+
+.dpad-buttons:first-child {
+    margin-bottom: -0.5rem;
+}
+
+.dpad-button {
+    width: 50px;
+    height: 50px;
+    border-radius: 8px !important; /* 覆盖原有的圆形样式 */
+}
+
+.dpad-button.up {
+    border-radius: 8px 8px 0 0 !important;
+}
+
+.dpad-button.down {
+    border-radius: 0 0 8px 8px !important;
+}
+
+.dpad-button.left {
+    border-radius: 8px 0 0 8px !important;
+}
+
+.dpad-button.right {
+    border-radius: 0 8px 8px 0 !important;
+}
+
+/* 调整按键组间距 */
+.button-group {
+    display: flex;
+    flex-direction: column;
+    gap: 1.5rem;
+}
+
+/* 调整列表样式 */
+.test-description ol {
+    margin: 0.5rem 0 0.75rem 1.2rem;
+    color: var(--text-secondary);
+}
+
+.test-description li {
+    margin-bottom: 0.4rem;
+    line-height: 1.5;
+    padding-left: 0.3rem;
+}
+
+/* 摇杆标签样式 */
+.joystick-label {
+    font-size: 0.9rem;
+    font-weight: 500;
+    color: var(--text-primary);
+    margin-bottom: 0.75rem;
+    letter-spacing: 0.01em;
+}
+
+/* 死区控制样式 */
+.deadzone-controls {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 0.5rem;
+    margin-bottom: 1.5rem;
+}
+
+.deadzone-controls label {
+    font-size: 0.9rem;
+    color: var(--text-color);
+}
+
+.deadzone-controls input[type="range"] {
+    width: 200px;
+    height: 4px;
+    -webkit-appearance: none;
+    background: rgba(0, 122, 255, 0.2);
+    border-radius: 2px;
+    outline: none;
+}
+
+.deadzone-controls input[type="range"]::-webkit-slider-thumb {
+    -webkit-appearance: none;
+    width: 16px;
+    height: 16px;
+    border-radius: 50%;
+    background: var(--primary-color);
+    cursor: pointer;
+    border: none;
+}
+
+/* 摇杆位置显示样式 */
+.stick-position {
+    font-family: monospace;
+    font-size: 0.9rem;
+    color: var(--text-color);
+    margin-top: 0.5rem;
+}
+
+.dpad-stats {
+    display: flex;
+    gap: 2rem;
+    margin-top: 1.5rem;
+    justify-content: center;
+}
+
+.dpad-stat-item {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 0.5rem;
+}
+
+.stat-label {
+    font-size: 1.2rem;
+    color: var(--text-color);
+}
+
+.stat-value {
+    font-family: -apple-system, BlinkMacSystemFont, "SF Mono", monospace;
+    font-size: 1.1rem;
+    font-weight: 500;
+    letter-spacing: 0.02em;
+}
+
+.reset-button {
+    margin-top: 1rem;
+    padding: 0.5rem 1.5rem;
+    border-radius: 100px;
+    border: 1px solid var(--primary-color);
+    background-color: transparent;
+    color: var(--primary-color);
+    font-weight: 500;
+    cursor: pointer;
+    transition: all 0.2s ease;
+    font-size: 0.9rem;
+    font-weight: 500;
+    letter-spacing: 0.02em;
+}
+
+.reset-button:hover {
+    background-color: var(--primary-color);
+    color: white;
+}
+
+/* 大屏幕优化 */
+@media (min-width: 1440px) {
+    .card-content {
+        padding: 2.5rem 3rem;
+    }
+    
+    .test-description {
+        max-width: 85%;
+        padding-left: 2rem;
+    }
+    
+    .test-description strong::before {
+        left: -2rem;
+        width: 1rem;
+    }
+}
+
+/* 为每个功能区添加独特的视觉标识 */
+#button-test .card-header {
+    border-left: 4px solid var(--button-test-color);
+}
+
+#dpad-test .card-header {
+    border-left: 4px solid var(--dpad-test-color);
+}
+
+#joystick-polling-test .card-header {
+    border-left: 4px solid var(--polling-test-color);
+}
+
+#joystick-deadzone-test .card-header {
+    border-left: 4px solid var(--deadzone-test-color);
+}
+
+#trigger-test .card-header {
+    border-left: 4px solid var(--trigger-test-color);
+}
+
+#vibration-test .card-header {
+    border-left: 4px solid var(--vibration-test-color);
+}
+
+/* 卡片交互效果 */
+.test-card:hover {
+    transform: translateY(-2px);
+    box-shadow: var(--shadow-lg);
+}
+
+.test-card:hover .card-header {
+    background: linear-gradient(
+        to right,
+        rgba(var(--theme-color, 0, 122, 255), 0.08),
+        transparent 70%
+    );
+}
+
+/* 为每个功能区设置主题色 */
+#button-test {
+    --theme-color: var(--button-test-color);
+}
+
+#dpad-test {
+    --theme-color: var(--dpad-test-color);
+}
+
+#joystick-polling-test {
+    --theme-color: var(--polling-test-color);
+}
+
+#joystick-deadzone-test {
+    --theme-color: var(--deadzone-test-color);
+}
+
+#trigger-test {
+    --theme-color: var(--trigger-test-color);
+}
+
+#vibration-test {
+    --theme-color: var(--vibration-test-color);
+}
+
+/* 功能区标题样式优化 */
+.card-header h2 {
+    font-size: 1.1rem;
+    font-weight: 500;
+    letter-spacing: 0.01em;
+    color: var(--text-primary);
+}
+
+/* 响应式调整 */
+@media (max-width: 768px) {
+    .card-header {
+        padding: 1rem 1.25rem;
+    }
+} 

@@ -1,0 +1,300 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    
+    <!-- SEO Basic Information -->
+    <title>Gamepad Tester - Professional Controller Testing Tool | Buttons/Sticks/Vibration</title>
+    <meta name="description" content="Professional online gamepad testing tool, supporting comprehensive testing of button response, stick polling rate, deadzone adjustment, vibration motors, etc. Compatible with Xbox/PlayStation/Nintendo and other game controllers.">
+    <meta name="keywords" content="gamepad test,gamepad tester,stick test,controller button test,controller deadzone,polling rate test,vibration test,Xbox controller,PS controller">
+    
+    <!-- Open Graph Tags -->
+    <meta property="og:title" content="Gamepad Tester - Professional Controller Testing Tool">
+    <meta property="og:description" content="Online testing for game controller button response, stick accuracy, vibration functions, supporting various brands of controllers.">
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="/">
+    
+    <!-- Twitter Card -->
+    <meta name="twitter:card" content="summary">
+    <meta name="twitter:title" content="Gamepad Tester - Professional Controller Testing Tool">
+    <meta name="twitter:description" content="Online testing for game controller button response, stick accuracy, vibration functions, supporting various brands of controllers.">
+    
+    <!-- Other SEO Tags -->
+    <meta name="author" content="your name or organization">
+    <meta name="robots" content="index, follow">
+    <link rel="canonical" href="/">
+    
+    <!-- Mobile Device Optimization -->
+    <meta name="theme-color" content="#007AFF">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black">
+    
+    <!-- Structured Data -->
+    <script type="application/ld+json">
+    {
+        "@context": "http://schema.org",
+        "@type": "WebApplication",
+        "name": "Gamepad Tester",
+        "description": "Professional online gamepad testing tool, supporting various brands of game controllers.",
+        "applicationCategory": "Utility Software",
+        "operatingSystem": "Web Browser",
+        "offers": {
+            "@type": "Offer",
+            "price": "0",
+            "priceCurrency": "USD"
+        },
+        "featureList": [
+            "Button Response Test",
+            "Stick Polling Rate Test",
+            "Deadzone Adjustment",
+            "Vibration Motor Test",
+            "D-pad Combo Test"
+        ]
+    }
+    </script>
+
+    <link rel="stylesheet" href="css/styles.css">
+</head>
+<body>
+    <div class="container">
+        <header>
+            <h1>Gamepad Tester</h1>
+            <div id="connection-status" class="status-card">
+                No Gamepad Detected
+            </div>
+        </header>
+        
+        <main>
+            <div class="test-sections">
+                <section id="button-test" class="test-card">
+                    <h2>Button Test</h2>
+                    <div class="test-description">
+                        For testing the response status of all controller buttons.
+                        <br>
+                        <strong>Test Method:</strong> Press each button and observe if it highlights properly.
+                        <br>
+                        <strong>Test Principle:</strong>
+                        Real-time monitoring of button states through the Gamepad API, each button has a unique index value, triggering pressed state and providing visual feedback through color changes.
+                    </div>
+                    <div class="button-grid">
+                        <div class="button-group">
+                            <!-- D-pad Group -->
+                            <div class="button-row dpad-buttons">
+                                <div class="gamepad-button dpad-button up" data-button="12">
+                                    <span class="button-label">↑</span>
+                                </div>
+                            </div>
+                            <div class="button-row dpad-buttons">
+                                <div class="gamepad-button dpad-button left" data-button="14">
+                                    <span class="button-label">←</span>
+                                </div>
+                                <div class="gamepad-button dpad-button down" data-button="13">
+                                    <span class="button-label">↓</span>
+                                </div>
+                                <div class="gamepad-button dpad-button right" data-button="15">
+                                    <span class="button-label">→</span>
+                                </div>
+                            </div>
+                            <!-- Function Buttons -->
+                            <div class="button-row">
+                                <div class="gamepad-button" data-button="0">
+                                    <span class="button-label">A</span>
+                                </div>
+                                <div class="gamepad-button" data-button="1">
+                                    <span class="button-label">B</span>
+                                </div>
+                                <div class="gamepad-button" data-button="2">
+                                    <span class="button-label">X</span>
+                                </div>
+                                <div class="gamepad-button" data-button="3">
+                                    <span class="button-label">Y</span>
+                                </div>
+                            </div>
+                            <!-- Other Buttons -->
+                            <div class="button-row">
+                                <div class="gamepad-button" data-button="4">
+                                    <span class="button-label">LB</span>
+                                </div>
+                                <div class="gamepad-button" data-button="5">
+                                    <span class="button-label">RB</span>
+                                </div>
+                                <div class="gamepad-button" data-button="6">
+                                    <span class="button-label">L2</span>
+                                </div>
+                                <div class="gamepad-button" data-button="7">
+                                    <span class="button-label">R2</span>
+                                </div>
+                            </div>
+                            <div class="button-row">
+                                <div class="gamepad-button" data-button="8">
+                                    <span class="button-label">Back</span>
+                                </div>
+                                <div class="gamepad-button" data-button="9">
+                                    <span class="button-label">Start</span>
+                                </div>
+                                <div class="gamepad-button" data-button="10">
+                                    <span class="button-label">L3</span>
+                                </div>
+                                <div class="gamepad-button" data-button="11">
+                                    <span class="button-label">R3</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </section>
+
+                <section id="dpad-test" class="test-card">
+                    <h2>D-pad Combo Test</h2>
+                    <div class="test-description">
+                        For testing continuous input and button combinations of the D-pad.
+                        <br>
+                        <strong>Test Method:</strong>
+                        1. Shows real-time button combinations above
+                        2. Shows cumulative press count for each direction below
+                        3. Suitable for fighting games requiring D-pad combinations
+                        <br>
+                        <strong>Test Principle:</strong>
+                        Uses state tracking objects to record button states, stores current combinations using Set data structure, and counts cumulative presses. Verifies D-pad response speed and accuracy of multi-button combination detection.
+                    </div>
+                    <div class="dpad-container">
+                        <div class="dpad">
+                            <div class="dpad-up" data-button="12">↑</div>
+                            <div class="dpad-right" data-button="15">→</div>
+                            <div class="dpad-down" data-button="13">↓</div>
+                            <div class="dpad-left" data-button="14">←</div>
+                        </div>
+                        <div class="dpad-combo">
+                            <h3>Current Combo:</h3>
+                            <div id="dpad-combo-display"></div>
+                        </div>
+                        <div class="dpad-stats">
+                            <div class="dpad-stat-item">
+                                <span class="stat-label">↑</span>
+                                <span class="stat-value" id="up-count">0</span>
+                            </div>
+                            <div class="dpad-stat-item">
+                                <span class="stat-label">↓</span>
+                                <span class="stat-value" id="down-count">0</span>
+                            </div>
+                            <div class="dpad-stat-item">
+                                <span class="stat-label">←</span>
+                                <span class="stat-value" id="left-count">0</span>
+                            </div>
+                            <div class="dpad-stat-item">
+                                <span class="stat-label">→</span>
+                                <span class="stat-value" id="right-count">0</span>
+                            </div>
+                        </div>
+                        <button id="reset-dpad-count" class="reset-button">Reset Count</button>
+                    </div>
+                </section>
+
+                <section id="joystick-polling-test" class="test-card">
+                    <h2>Stick Polling Rate Test</h2>
+                    <div class="test-description">
+                        For testing the signal response speed of analog sticks.
+                        <br>
+                        <strong>Test Method:</strong> Move the stick quickly and observe the polling rate value
+                        <br>
+                        <strong>Reference Standard:</strong> Above 60Hz ensures smooth operation
+                        <br>
+                        <strong>Test Principle:</strong>
+                        Uses 1000ms time window sampling analysis, filters out minor movements below 0.01, monitors X/Y axis changes separately and counts effective updates per unit time, takes the higher value as the polling rate.
+                    </div>
+                    <div class="joystick-container">
+                        <div class="joystick-wrapper">
+                            <div class="joystick-label">Left Stick</div>
+                            <canvas id="leftStickPolling" width="200" height="200"></canvas>
+                            <div class="polling-rate" id="leftStickRate">Rate: 0Hz</div>
+                        </div>
+                        <div class="joystick-wrapper">
+                            <div class="joystick-label">Right Stick</div>
+                            <canvas id="rightStickPolling" width="200" height="200"></canvas>
+                            <div class="polling-rate" id="rightStickRate">Rate: 0Hz</div>
+                        </div>
+                    </div>
+                </section>
+
+                <section id="joystick-deadzone-test" class="test-card">
+                    <h2>Stick Deadzone Test</h2>
+                    <div class="test-description">
+                        For testing the invalid input range of analog sticks.
+                        <br>
+                        <strong>Test Method:</strong>
+                        1. Gray area represents deadzone
+                        2. Adjust deadzone size using slider
+                        <br>
+                        <strong>Reference Standard:</strong> Recommended value 0.10-0.15 to prevent stick drift
+                        <br>
+                        <strong>Test Principle:</strong>
+                        Real-time acquisition of stick X/Y axis raw values (-1.0 to 1.0), calculates stick offset, treats input as invalid when offset is below deadzone value. Adjust deadzone size to find optimal balance point for eliminating drift.
+                    </div>
+                    <div class="deadzone-controls">
+                        <label>Deadzone Size: <span id="deadzoneValue">0.10</span></label>
+                        <input type="range" id="deadzoneSlider" min="0" max="0.5" step="0.01" value="0.10">
+                    </div>
+                    <div class="joystick-container">
+                        <div class="joystick-wrapper">
+                            <div class="joystick-label">Left Stick</div>
+                            <canvas id="leftStickDeadzone" width="200" height="200"></canvas>
+                            <div class="stick-position" id="leftStickPos">X: 0.00, Y: 0.00</div>
+                        </div>
+                        <div class="joystick-wrapper">
+                            <div class="joystick-label">Right Stick</div>
+                            <canvas id="rightStickDeadzone" width="200" height="200"></canvas>
+                            <div class="stick-position" id="rightStickPos">X: 0.00, Y: 0.00</div>
+                        </div>
+                    </div>
+                </section>
+
+                <section id="trigger-test" class="test-card">
+                    <h2>Trigger Test</h2>
+                    <div class="test-description">
+                        For testing analog input of trigger buttons (L2/R2).
+                        <br>
+                        <strong>Test Method:</strong> Slowly press triggers and observe if the blue bar height changes smoothly
+                        <br>
+                        <strong>Application:</strong> Racing game throttle/brake control
+                        <br>
+                        <strong>Test Principle:</strong>
+                        Reads trigger 0.0-1.0 analog values through Gamepad API, converts to percentage and displays through height changes. Verifies linear pressure value changes and numerical stability.
+                    </div>
+                    <div class="trigger-container">
+                        <div class="trigger left">
+                            <div class="trigger-bar"></div>
+                            <span>L2: 0%</span>
+                        </div>
+                        <div class="trigger right">
+                            <div class="trigger-bar"></div>
+                            <span>R2: 0%</span>
+                        </div>
+                    </div>
+                </section>
+
+                <section id="vibration-test" class="test-card">
+                    <h2>Vibration Test</h2>
+                    <div class="test-description">
+                        For testing the dual motor vibration function.
+                        <br>
+                        <strong>Test Method:</strong>
+                        1. Weak: Test low-frequency motor
+                        2. Strong: Test high-frequency motor
+                        3. Check if vibration is uniform without stuttering
+                        <br>
+                        <strong>Test Principle:</strong>
+                        Uses Gamepad API vibration actuator to control low-frequency (sides) and high-frequency (grip) motors independently, adjustable 0.0-1.0 vibration intensity, verifies vibration uniformity and intensity accuracy.
+                    </div>
+                    <div class="vibration-controls">
+                        <button id="weak-vibration" class="vibration-button">Weak Vibration</button>
+                        <button id="strong-vibration" class="vibration-button">Strong Vibration</button>
+                        <button id="stop-vibration" class="vibration-button">Stop Vibration</button>
+                    </div>
+                </section>
+            </div>
+        </main>
+    </div>
+    <script src="js/gamepadUtils.js"></script>
+    <script src="js/main.js"></script>
+</body>
+</html> 
